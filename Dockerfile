@@ -1,35 +1,20 @@
-# Use an official Node.js image as the build environment
-FROM node:latest AS build
+# Use an official Node.js runtime as the base image
+FROM node:latest
 
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json for dependency installation
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install app dependencies
+# Install application dependencies
 RUN npm install
 
-# Copy all app files to the container
+# Copy the rest of the application code to the working directory
 COPY . .
 
-# Build your Vite app
-RUN npm run build
+# Expose the port that your application will run on
+EXPOSE 3000
 
-# Use an official NGINX image as the base image
-FROM nginx:latest
-
-# Remove the default NGINX configuration
-RUN rm -f /etc/nginx/conf.d/default.conf
-
-# Copy your custom NGINX configuration file
-COPY nginx.conf /etc/nginx/conf.d/
-
-# Copy the built app from the previous build stage
-COPY --from=build /app/dist/ /usr/share/nginx/html
-
-# Expose port 80 to outside traffic
-EXPOSE 80
-
-# Start NGINX when the container starts
-CMD ["nginx", "-g", "daemon off;"]
+# Define the command to start your application
+CMD ["node", "server"]
