@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/manifest.json">
+    <title>Homepage</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Script for Service Worker
+        window.addEventListener('load', () => {
+          registerSW();
+        });
+     
+        // Register the Service Worker
+        async function registerSW() {
+          if ('serviceWorker' in navigator) {
+            try {
+              await navigator
+                    .serviceWorker
+                    .register('serviceworker.js');
+            }
+            catch (e) {
+              console.log(e)
+              console.log('SW registration failed');
+            }
+          }
+        }
+     </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
