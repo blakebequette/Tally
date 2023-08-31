@@ -1,5 +1,5 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles'
-import { brown, green, purple, blue, red, grey } from '@mui/material/colors'
+import { green, purple } from '@mui/material/colors'
 import { ReactNode } from 'react'
 
 const theme = createTheme({
