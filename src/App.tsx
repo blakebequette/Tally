@@ -1,9 +1,13 @@
-import MyThemeProvider from "./Theme"
+import { CssBaseline } from '@mui/material'
+import MyThemeProvider from './Theme'
+import UI from './components/UI'
 
 function App() {
   return (
     <MyThemeProvider>
-      <h1>Homepage by B</h1>
+      <CssBaseline>
+        <UI />
+      </CssBaseline>
     </MyThemeProvider>
   )
 }

@@ -1,8 +1,13 @@
-import { ThemeProvider, createTheme } from "@mui/material/styles"
-import { green, purple } from "@mui/material/colors"
-import { ReactNode } from "react"
+import { ThemeProvider, createTheme } from '@mui/material/styles'
+import { brown, green, purple, blue, red, grey } from '@mui/material/colors'
+import { ReactNode } from 'react'
 
 const theme = createTheme({
+  typography: {
+    fontFamily: 'Roboto,Arial',
+    fontSize: 20,
+  },
+  spacing: 4,
   palette: {
     primary: {
       main: purple[500],
@@ -10,10 +15,19 @@ const theme = createTheme({
     secondary: {
       main: green[500],
     },
-    background: {
-      default: green[200],
-    },
-    mode: "dark",
+    // success: {
+    //   main: brown[500],
+    // },
+    // warning: {
+    //   main: red[500],
+    // },
+    // info: {
+    //   main: blue[500],
+    // },
+    // background: {
+    //   default: grey[900],
+    // },
+    mode: 'light',
   },
 })
 
