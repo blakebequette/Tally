@@ -6,7 +6,7 @@ export default function UI() {
       sx={{
         width: '100%',
         height: '100vh',
-        backgroundColor: 'grey',
+        backgroundColor: '#ADD8E6',
       }}
     >
       <Typography component="h1" color="background" textAlign="center">
