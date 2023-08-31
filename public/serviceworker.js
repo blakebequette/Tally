@@ -1,9 +1,20 @@
 var staticCacheName = "score-cache-v1";
  
+const CACHE_ASSETS = [
+  '/',
+  '/index.html',
+  '/images/B-192x192.png',
+  '/images/B-512x512.png',
+  '/assets/bundle.js',
+  '/assets/index.css'
+]
+
+
+
 self.addEventListener("install", function (e) {
   e.waitUntil(
     caches.open(staticCacheName).then(function (cache) {
-      return cache.addAll(["/"]);
+      return cache.addAll(CACHE_ASSETS);
     })
   );
 });
